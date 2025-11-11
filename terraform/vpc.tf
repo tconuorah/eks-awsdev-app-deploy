@@ -110,7 +110,7 @@ resource "aws_route_table_association" "private" {
 
 # Security Groups
 resource "aws_security_group" "eks_cluster" {
-  name        = "eks-cluster-sg"
+  name        = "${var.cluster_name}-sg"
   description = "Security group for EKS cluster"
   vpc_id      = aws_vpc.main.id
 
@@ -129,12 +129,12 @@ resource "aws_security_group" "eks_cluster" {
   }
 
   tags = {
-    Name = "eks-cluster-sg"
+    Name = "${var.cluster_name}-sg"
   }
 }
 
 resource "aws_security_group" "jenkins_master" {
-  name        = "jenkins-master-sg"
+  name        = "${var.cluster_name}-jenkins-master-sg"
   description = "Security group for Jenkins master node"
   vpc_id      = aws_vpc.main.id
 

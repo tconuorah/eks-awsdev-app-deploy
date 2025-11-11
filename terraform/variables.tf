@@ -13,7 +13,7 @@ variable "environment" {
 variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
-  default     = "aws-dev-eks-cluster"
+  default     = "eks-cluster"
 }
 
 variable "node_group_name" {
